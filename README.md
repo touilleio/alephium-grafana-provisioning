@@ -1,1 +1,1 @@
-# alephium-grafana-proisioning
+# alephium-grafana-provisioning
