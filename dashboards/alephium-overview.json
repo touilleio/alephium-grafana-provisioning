@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1626004949161,
+  "iteration": 1626026070198,
   "links": [],
   "panels": [
     {
@@ -3119,7 +3119,7 @@
           "value": "broker-0"
         },
         "datasource": null,
-        "definition": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+        "definition": "label_values(up{job=\"alephium-full-nodes\"}, instance)",
         "description": null,
         "error": null,
         "hide": 0,
@@ -3132,10 +3132,15 @@
             "selected": true,
             "text": "broker-0",
             "value": "broker-0"
+          },
+          {
+            "selected": false,
+            "text": "broker-1",
+            "value": "broker-1"
           }
         ],
         "query": {
-          "query": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+          "query": "label_values(up{job=\"alephium-full-nodes\"}, instance)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 0,
