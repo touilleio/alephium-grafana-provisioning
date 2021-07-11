@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": 14359,
   "graphTooltip": 1,
-  "id": 10,
-  "iteration": 1621923378529,
+  "iteration": 1626006050702,
   "links": [],
   "panels": [
     {
@@ -31,9 +30,7 @@
       ],
       "datasource": "$datasource",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "none",
@@ -57,10 +54,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:113",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:114",
           "name": "range to text",
           "value": 2
         }
@@ -89,7 +88,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "up{app=\"alephium\"}",
+          "expr": "up{app=\"alephium\",component=\"broker\",instance=\"$broker\"}",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -105,16 +104,19 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
+          "$$hashKey": "object:116",
           "op": "=",
           "text": "UP",
           "value": "1"
         },
         {
+          "$$hashKey": "object:117",
           "op": "=",
           "text": "DOWN",
           "value": "0"
         },
         {
+          "$$hashKey": "object:118",
           "op": "=",
           "text": "DOWN",
           "value": "null"
@@ -134,9 +136,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "s",
@@ -159,10 +159,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:159",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:160",
           "name": "range to text",
           "value": 2
         }
@@ -191,7 +193,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "time() - process_start_time_seconds{app=\"alephium\"}",
+          "expr": "time() - process_start_time_seconds{app=\"alephium\",component=\"broker\",instance=\"$broker\"}",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -206,6 +208,7 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
+          "$$hashKey": "object:162",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -225,9 +228,7 @@
       "datasource": "$datasource",
       "decimals": null,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "dateTimeAsIso",
@@ -250,10 +251,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:201",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:202",
           "name": "range to text",
           "value": 2
         }
@@ -282,7 +285,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "process_start_time_seconds{app=\"alephium\"}*1000",
+          "expr": "process_start_time_seconds{app=\"alephium\",component=\"broker\",instance=\"$broker\"}*1000",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -297,6 +300,7 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
+          "$$hashKey": "object:204",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -316,9 +320,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "none",
@@ -406,9 +408,7 @@
       ],
       "datasource": "Prometheus",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "percentunit",
@@ -431,10 +431,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:251",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:252",
           "name": "range to text",
           "value": 2
         }
@@ -453,13 +455,6 @@
           "to": "null"
         }
       ],
-      "scopedVars": {
-        "service": {
-          "selected": true,
-          "text": "alephium",
-          "value": "alephium"
-        }
-      },
       "sparkline": {
         "fillColor": "rgba(31, 118, 189, 0.18)",
         "full": false,
@@ -469,7 +464,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(process_cpu_seconds_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(rate(process_cpu_seconds_total{app=\"alephium\",instance=\"$broker\"}[1m]))",
           "format": "time_series",
           "groupBy": [],
           "instant": true,
@@ -510,6 +506,7 @@
       "valueFontSize": "70%",
       "valueMaps": [
         {
+          "$$hashKey": "object:254",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -529,23 +526,7 @@
       "dashes": false,
       "datasource": "Prometheus",
       "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 2,
@@ -575,24 +556,18 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "service": {
-          "selected": true,
-          "text": "alephium",
-          "value": "alephium"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(process_cpu_seconds_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(rate(process_cpu_seconds_total{app=\"alephium\",instance=\"$broker\"}[1m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -666,9 +641,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -700,7 +673,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -711,7 +684,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "increase(jvm_gc_collection_seconds_sum{app=\"alephium\"}[$__rate_interval])",
+          "expr": "increase(jvm_gc_collection_seconds_sum{app=\"alephium\",instance=\"$broker\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "60s",
           "intervalFactor": 1,
@@ -770,9 +743,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -803,7 +774,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -814,7 +785,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_gc_collection_seconds_count{app=~\"alephium\"}",
+          "expr": "jvm_gc_collection_seconds_count{app=~\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "60s",
           "intervalFactor": 1,
@@ -874,9 +845,7 @@
       "datasource": "$datasource",
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -910,7 +879,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -933,7 +902,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_memory_bytes_used{app=\"alephium\"}",
+          "expr": "jvm_memory_bytes_used{app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -989,9 +958,7 @@
       "dashes": false,
       "datasource": "$datasource",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1022,7 +989,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1033,7 +1000,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_classes_loaded{ app=\"alephium\"}",
+          "expr": "jvm_classes_loaded{ app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -1044,7 +1011,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_classes_unloaded_total{ app=\"alephium\"}",
+          "expr": "jvm_classes_unloaded_total{ app=\"alephium\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "unloaded",
@@ -1101,9 +1068,7 @@
       "datasource": "$datasource",
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1138,7 +1103,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1151,7 +1116,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_max{pool=\"Survivor Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=\"Survivor Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1162,7 +1127,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_used{pool=\"Survivor Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=\"Survivor Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1173,7 +1138,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"Survivor Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=\"Survivor Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1232,9 +1197,7 @@
       "datasource": "$datasource",
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1269,7 +1232,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1281,7 +1244,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_max{pool=\"Eden Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=\"Eden Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1292,7 +1255,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_used{pool=\"Eden Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=\"Eden Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1303,7 +1266,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"Eden Space\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=\"Eden Space\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1362,9 +1325,7 @@
       "datasource": "$datasource",
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1399,7 +1360,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1411,7 +1372,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_max{pool=\"Tenured Gen\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=\"Tenured Gen\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1422,7 +1383,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_used{pool=\"Tenured Gen\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=\"Tenured Gen\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1433,7 +1394,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"Tenured Gen\", app=\"alephium\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=\"Tenured Gen\", app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1505,9 +1466,7 @@
       "dashes": false,
       "datasource": null,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1536,7 +1495,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1547,14 +1506,14 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"RUNNABLE\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"RUNNABLE\",instance=\"$broker\"}",
           "interval": "",
           "legendFormat": "{{ state }}",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"BLOCKED\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"BLOCKED\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ state }}",
@@ -1562,7 +1521,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"NEW\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"NEW\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ state }}",
@@ -1570,7 +1529,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"TERMINATED\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"TERMINATED\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ state }}",
@@ -1578,7 +1537,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"TIMED_WAITING\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"TIMED_WAITING\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ state }}",
@@ -1586,7 +1545,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_state{app=\"alephium\",state=\"WAITING\"}",
+          "expr": "jvm_threads_state{app=\"alephium\",state=\"WAITING\",instance=\"$broker\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ state }}",
@@ -1642,9 +1601,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -1677,7 +1634,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1688,7 +1645,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "jvm_threads_current{app=\"alephium\"}",
+          "expr": "jvm_threads_current{app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -1699,7 +1656,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_daemon{app=\"alephium\"}",
+          "expr": "jvm_threads_daemon{app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -1710,7 +1667,7 @@
         },
         {
           "exemplar": true,
-          "expr": "jvm_threads_deadlocked{app=\"alephium\"}",
+          "expr": "jvm_threads_deadlocked{app=\"alephium\",instance=\"$broker\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1762,7 +1719,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1787,6 +1744,43 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "broker-0",
+          "value": "broker-0"
+        },
+        "datasource": null,
+        "definition": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "broker:",
+        "multi": false,
+        "name": "broker",
+        "options": [
+          {
+            "selected": true,
+            "text": "broker-0",
+            "value": "broker-0"
+          }
+        ],
+        "query": {
+          "query": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
@@ -1817,5 +1811,5 @@
   "timezone": "",
   "title": "JVM Overview",
   "uid": "ME6diT3Mk",
-  "version": 3
+  "version": 2
 }
