@@ -15,17 +15,14 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 11,
-  "iteration": 1622658390071,
+  "iteration": 1626004949161,
   "links": [],
   "panels": [
     {
       "datasource": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -39,10 +36,9 @@
         "content": "<div class=\"dashboard-header text-center\">\n<span>General</span>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.5.9",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "text"
     },
@@ -57,9 +53,7 @@
       ],
       "datasource": "$datasource",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "none",
@@ -83,10 +77,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:325",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:326",
           "name": "range to text",
           "value": 2
         }
@@ -115,7 +111,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "up{app=\"alephium\"}",
+          "expr": "up{app=\"alephium\",component=\"broker\",instance=\"$broker\"}",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -131,16 +127,19 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
+          "$$hashKey": "object:328",
           "op": "=",
           "text": "UP",
           "value": "1"
         },
         {
+          "$$hashKey": "object:329",
           "op": "=",
           "text": "DOWN",
           "value": "0"
         },
         {
+          "$$hashKey": "object:330",
           "op": "=",
           "text": "DOWN",
           "value": "null"
@@ -160,9 +159,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "s",
@@ -185,10 +182,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:371",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:372",
           "name": "range to text",
           "value": 2
         }
@@ -217,7 +216,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "time() - process_start_time_seconds{app=\"alephium\"}",
+          "expr": "time() - process_start_time_seconds{app=\"alephium\",component=\"broker\",instance=\"$broker\"}",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -232,6 +231,7 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
+          "$$hashKey": "object:374",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -245,7 +245,6 @@
       "description": "Number of connected peers",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 0,
           "mappings": [
             {
@@ -256,7 +255,6 @@
               "value": "null"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -296,13 +294,14 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
           "exemplar": true,
-          "expr": "alephium_peers_total{app=\"alephium\"}",
+          "expr": "alephium_peers_total{app=\"alephium\",instance=\"$broker\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -326,9 +325,7 @@
       "datasource": "$datasource",
       "decimals": 0,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "none",
@@ -351,10 +348,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:455",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:456",
           "name": "range to text",
           "value": 2
         }
@@ -383,7 +382,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "label_join(jvm_info{app=\"alephium\"}, \"jdk\", \", \", \"vendor\", \"runtime\", \"version\")",
+          "expr": "label_join(jvm_info{app=\"alephium\",instance=\"$broker\"}, \"jdk\", \", \", \"vendor\", \"runtime\", \"version\")",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -398,6 +397,7 @@
       "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:458",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -417,9 +417,7 @@
       "datasource": "$datasource",
       "decimals": null,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "format": "dateTimeAsIso",
@@ -442,10 +440,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:413",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:414",
           "name": "range to text",
           "value": 2
         }
@@ -474,7 +474,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "process_start_time_seconds{app=\"alephium\"}*1000",
+          "expr": "process_start_time_seconds{app=\"alephium\",component=\"broker\",instance=\"$broker\"}*1000",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -489,6 +489,7 @@
       "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:416",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -501,7 +502,6 @@
       "description": "Alephium Version",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -538,12 +538,14 @@
           "fields": "/^release_version$/",
           "values": false
         },
+        "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "alephium_build_info{app=\"alephium\"}",
+          "exemplar": true,
+          "expr": "alephium_build_info{app=\"alephium\",instance=\"$broker\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -561,9 +563,7 @@
       "datasource": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -577,10 +577,9 @@
         "content": "<div class=\"dashboard-header text-center\">\n<span>Mempool</span>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.5.9",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "text"
     },
@@ -592,9 +591,7 @@
       "datasource": "Prometheus",
       "description": "Number of transactions in shared pool per group",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -623,7 +620,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -633,7 +630,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (group_index, chain_index)(alephium_mempool_shared_pool_transactions_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum by (group_index, chain_index)(alephium_mempool_shared_pool_transactions_total{app=\"alephium\",instance=\"$broker\"})",
           "interval": "",
           "legendFormat": "group {{group_index}}, chain {{chain_index}}",
           "refId": "A"
@@ -691,9 +689,7 @@
       "datasource": "Prometheus",
       "description": "Total number of transactions in shared pool",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "fill": 1,
@@ -722,7 +718,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -732,9 +728,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum (alephium_mempool_shared_pool_transactions_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum (alephium_mempool_shared_pool_transactions_total{app=\"alephium\"}) by (instance)",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Overall {{instance}}",
           "refId": "A"
         }
       ],
@@ -791,7 +788,6 @@
       "description": "Number of transactions in pending pool per group",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -822,7 +818,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -832,9 +828,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (group_index)(alephium_mempool_pending_pool_transactions_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum by (group_index,instance)(alephium_mempool_pending_pool_transactions_total{app=\"alephium\"})",
           "interval": "",
-          "legendFormat": "Group index: {{group_index}}",
+          "legendFormat": "Group index: {{group_index}} {{instance}}",
           "refId": "A"
         }
       ],
@@ -891,7 +888,6 @@
       "description": "Total number of transactions in pending pool",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -922,7 +918,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -932,9 +928,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(alephium_mempool_pending_pool_transactions_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum(alephium_mempool_pending_pool_transactions_total{app=\"alephium\"}) by (instance)",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Overall {{instance}}",
           "refId": "A"
         }
       ],
@@ -986,9 +983,7 @@
       "datasource": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -1002,10 +997,9 @@
         "content": "<div class=\"dashboard-header text-center\">\n<span>Network</span>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.5.9",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "text"
     },
@@ -1018,7 +1012,6 @@
       "description": "Download Speed (byte/second) per peer",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "bytes"
         },
         "overrides": []
@@ -1049,7 +1042,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1059,7 +1052,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_download_bytes_total{app=\"alephium\"}[2m])) by (remote_address)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_download_bytes_total{app=\"alephium\",instance=\"$broker\"}[2m])) by (remote_address)",
           "interval": "",
           "legendFormat": "remote_address: {{remote_address}}",
           "refId": "A"
@@ -1117,7 +1111,6 @@
       "description": "Total download Speed (byte/second)",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "bytes"
         },
         "overrides": []
@@ -1148,7 +1141,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1158,9 +1151,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_download_bytes_total{app=\"alephium\"}[2m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_download_bytes_total{app=\"alephium\"}[2m])) by (instance)",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Overall {{instance}}",
           "refId": "A"
         }
       ],
@@ -1216,7 +1210,6 @@
       "description": "Upload Speed (byte/second) per peer",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "bytes"
         },
         "overrides": []
@@ -1247,7 +1240,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1257,7 +1250,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_upload_bytes_total{app=\"alephium\"}[1m])) by (remote_address)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_upload_bytes_total{app=\"alephium\",instance=\"${broker}\"}[1m])) by (remote_address)",
           "interval": "",
           "legendFormat": "{{remote_address}}",
           "refId": "A"
@@ -1313,7 +1307,6 @@
       "description": "Total upload Speed (byte/second)",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "bytes"
         },
         "overrides": []
@@ -1344,7 +1337,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1354,9 +1347,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_upload_bytes_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_upload_bytes_total{app=\"alephium\"}[1m])) by (instance)",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Overall {{instance}}",
           "refId": "A"
         }
       ],
@@ -1407,9 +1401,7 @@
       "datasource": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -1423,10 +1415,9 @@
         "content": "<div class=\"dashboard-header text-center\">\n<span>Chain Validation</span>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.5.9",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "text"
     },
@@ -1440,7 +1431,6 @@
       "description": "Number of payload per second, group by payload",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -1471,7 +1461,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1481,7 +1471,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_payload_total{app=\"alephium\"}[1m])) by (payload_type)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_payload_total{app=\"alephium\",instance=\"${broker}\"}[1m])) by (payload_type)",
           "interval": "",
           "legendFormat": "{{payload_type}}",
           "refId": "A"
@@ -1540,7 +1531,6 @@
       "description": "Total number of payload per second",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -1571,7 +1561,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1581,9 +1571,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_payload_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_payload_total{app=\"alephium\"}[1m])) by (instance)",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Overall {{instance}}",
           "refId": "B"
         }
       ],
@@ -1640,7 +1631,6 @@
       "description": "Chain validation per second (Block and BlockHeader)",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -1671,7 +1661,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1681,9 +1671,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_chain_validation_total{app=\"alephium\"}[1m])) by (validation_type)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_chain_validation_total{app=\"alephium\"}[1m])) by (validation_type,instance)",
           "interval": "",
-          "legendFormat": "{{validation_type}}",
+          "legendFormat": "{{validation_type}} {{instance}}",
           "refId": "B"
         }
       ],
@@ -1739,7 +1730,6 @@
       "description": "Validation time, both block validation and header validation. \n\n50 percentile, 90 percentil and 99 percentile",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "ms"
         },
         "overrides": []
@@ -1770,7 +1760,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1780,19 +1770,22 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.50, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\"}[1m])) by (le))",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.50, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\",instance=\"${broker}\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "P50",
           "refId": "A"
         },
         {
-          "expr": "histogram_quantile(0.90, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\"}[1m])) by (le))",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.90, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\",instance=\"${broker}\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "P90",
           "refId": "B"
         },
         {
-          "expr": "histogram_quantile(0.99, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\"}[1m])) by (le))",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.99, sum(irate(alephium_chain_validation_duration_milliseconds_bucket{app=\"alephium\",instance=\"${broker}\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "P99",
           "refId": "C"
@@ -1851,21 +1844,6 @@
       "description": "Failed chain validation per second (Block and BlockHeader)",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "none"
         },
         "overrides": []
@@ -1897,7 +1875,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1907,11 +1885,12 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_chain_validation_failed{app=\"alephium\"}[1m])) by (validation_type, invalid_status)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_chain_validation_failed{app=\"alephium\"}[1m])) by (validation_type, invalid_status, instance)",
           "format": "time_series",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{validation_type}}",
+          "legendFormat": "{{validation_type}} {{instance}}",
           "refId": "B"
         }
       ],
@@ -1952,7 +1931,7 @@
         {
           "$$hashKey": "object:108",
           "decimals": null,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1979,9 +1958,7 @@
       "datasource": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -1995,10 +1972,9 @@
         "content": "<div class=\"dashboard-header text-center\">\n<span>Blocks and Transactions</span>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.5.9",
       "timeFrom": null,
       "timeShift": null,
-      "title": "",
       "transparent": true,
       "type": "text"
     },
@@ -2007,10 +1983,6 @@
       "description": "Current Block Height Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2046,12 +2018,14 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "sum(alephium_block_current_height) by (chain_from, chain_to)",
+          "exemplar": true,
+          "expr": "sum(alephium_block_current_height{app=\"alephium\",instance=\"${broker}\"}) by (chain_from, chain_to)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2070,10 +2044,6 @@
       "description": "Current Block Height",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2111,12 +2081,14 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "sum(alephium_block_current_height)",
+          "exemplar": true,
+          "expr": "sum(alephium_block_current_height{app=\"alephium\",instance=\"${broker}\"})",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2135,7 +2107,6 @@
       "description": "Total Blocks Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2171,12 +2142,14 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "sum(alephium_blocks_total{app=\"alephium\"}) by (chain_from, chain_to)",
+          "exemplar": true,
+          "expr": "sum(alephium_blocks_total{app=\"alephium\",instance=\"${broker}\"}) by (chain_from, chain_to)",
           "interval": "",
           "legendFormat": "Chain ({{chain_from}}, {{chain_to}})",
           "refId": "B"
@@ -2192,7 +2165,6 @@
       "description": "Total Blocks Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2230,12 +2202,14 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "sum(alephium_blocks_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum(alephium_blocks_total{app=\"alephium\",instance=\"${broker}\"})",
           "interval": "",
           "legendFormat": "Overall",
           "refId": "B"
@@ -2256,7 +2230,6 @@
       "description": "Blocks Per Second Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -2288,7 +2261,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2298,7 +2271,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_blocks_received_total{app=\"alephium\"}[1m])) by (chain_from, chain_to)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_blocks_received_total{app=\"alephium\",instance=\"${broker}\"}[1m])) by (chain_from, chain_to)",
           "interval": "",
           "legendFormat": "Chain ({{chain_from}}, {{chain_to}})",
           "refId": "B"
@@ -2358,7 +2332,6 @@
       "description": "Total Blocks Per Second",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -2390,7 +2363,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2400,10 +2373,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_blocks_received_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_blocks_received_total{app=\"alephium\",instance=\"${broker}\"}[1m]))",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "instant",
           "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(rate(alephium_blocks_received_total{app=\"alephium\",instance=\"${broker}\"}[1h]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Average 1h",
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -2460,7 +2442,6 @@
       "description": "Transaction Per Second Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -2492,7 +2473,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2502,7 +2483,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_transactions_received_total{app=\"alephium\"}[1m])) by (chain_from, chain_to)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_transactions_received_total{app=\"alephium\",instance=\"${broker}\"}[1m])) by (chain_from, chain_to)",
           "interval": "",
           "legendFormat": "Chain ({{chain_from}}, {{chain_to}})",
           "refId": "B"
@@ -2562,7 +2544,6 @@
       "description": "Total ransaction Per Second",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -2594,7 +2575,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2604,10 +2585,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_transactions_received_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_transactions_received_total{app=\"alephium\",instance=\"${broker}\"}[1m]))",
           "interval": "",
-          "legendFormat": "Overall",
+          "legendFormat": "Instant",
           "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(rate(alephium_transactions_received_total{app=\"alephium\",instance=\"${broker}\"}[1h]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Average 1h",
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -2664,7 +2654,6 @@
       "description": "Block Time with Percentil",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "ms"
         },
         "overrides": []
@@ -2696,7 +2685,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2706,13 +2695,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.5, sum(rate(alephium_block_duration_milliseconds_bucket[1m])) by (le))",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.5, sum(rate(alephium_block_duration_milliseconds_bucket{instance=\"${broker}\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "P50",
           "refId": "B"
         },
         {
-          "expr": "histogram_quantile(0.9, sum(rate(alephium_block_duration_milliseconds_bucket[1m])) by (le))",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.9, sum(rate(alephium_block_duration_milliseconds_bucket{instance=\"${broker}\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "P90",
           "refId": "A"
@@ -2779,7 +2770,6 @@
       "description": "Total Headers Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2815,12 +2805,14 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "alephium_headers_total{app=\"alephium\"}",
+          "exemplar": true,
+          "expr": "alephium_headers_total{app=\"alephium\",instance=\"${broker}\"}",
           "interval": "",
           "legendFormat": "Chain ({{chain_from}}, {{chain_to}})",
           "refId": "B"
@@ -2836,7 +2828,6 @@
       "description": "Total Headers",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2874,12 +2865,14 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "targets": [
         {
-          "expr": "sum(alephium_headers_total{app=\"alephium\"})",
+          "exemplar": true,
+          "expr": "sum(alephium_headers_total{app=\"alephium\",instance=\"${broker}\"})",
           "interval": "",
           "legendFormat": "Overall",
           "refId": "B"
@@ -2899,21 +2892,6 @@
       "description": "Headers Per Second Per Chain",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "none"
         },
         "overrides": []
@@ -2944,7 +2922,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2954,7 +2932,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_headers_received_total{app=\"alephium\"}[1m])) by (chain_from, chain_to)",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_headers_received_total{app=\"alephium\",instance=\"${broker}\"}[1m])) by (chain_from, chain_to)",
           "interval": "",
           "legendFormat": "Chain ({{chain_from}}, {{chain_to}})",
           "refId": "B"
@@ -3013,7 +2992,6 @@
       "description": "Total Headers Per Second",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "unit": "none"
         },
         "overrides": []
@@ -3045,7 +3023,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3055,7 +3033,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(alephium_headers_received_total{app=\"alephium\"}[1m]))",
+          "exemplar": true,
+          "expr": "sum(irate(alephium_headers_received_total{app=\"alephium\",instance=\"${broker}\"}[1m]))",
           "interval": "",
           "legendFormat": "Overall",
           "refId": "B"
@@ -3107,7 +3086,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3118,6 +3097,8 @@
           "text": "Prometheus",
           "value": "Prometheus"
         },
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": null,
@@ -3129,6 +3110,43 @@
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "broker-0",
+          "value": "broker-0"
+        },
+        "datasource": null,
+        "definition": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Broker:",
+        "multi": false,
+        "name": "broker",
+        "options": [
+          {
+            "selected": true,
+            "text": "broker-0",
+            "value": "broker-0"
+          }
+        ],
+        "query": {
+          "query": "label_values(up{app=\"alephium\",component=\"broker\"}, instance)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
@@ -3140,5 +3158,5 @@
   "timezone": "",
   "title": "Alephium Overview",
   "uid": "S3eJTo3Mk",
-  "version": 20
+  "version": 1
 }
